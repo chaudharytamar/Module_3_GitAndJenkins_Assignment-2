@@ -17,5 +17,44 @@
   </dependencies>
   <build>
     <finalName>SandersWebApp</finalName>
+    <plugins>
+
+        <!-- Checkstyle Plugin -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <version>3.3.0</version>
+            <configuration>
+                <outputFile>${project.build.directory}/checkstyle-result.xml</outputFile>
+                <outputFileFormat>xml</outputFileFormat>
+                <consoleOutput>true</consoleOutput>
+                <failsOnError>false</failsOnError>
+            </configuration>
+            <executions>
+                <execution>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>checkstyle</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <!-- PMD Plugin (Optional but Recommended) -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
+            <version>3.21.0</version>
+            <executions>
+                <execution>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>pmd</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+    </plugins>
   </build>
 </project>
